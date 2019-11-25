@@ -11,8 +11,4 @@
     <PackageReference Include="Microsoft.AspNetCore.All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\GraphQLTests\GraphQLTests.csproj" />
-  </ItemGroup>
-
 </Project>

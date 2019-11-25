@@ -31,9 +31,6 @@ namespace Api
             services.AddScoped<ProductSchema>();
             services.AddScoped<ShopData>();
 
-            //services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-            //services.AddSingleton<IDocumentWriter, DocumentWriter>();
-            //services.AddControllers();
 
             //services.AddSingleton<ShopMutation>();
             services.AddSingleton<ShopQuery>();
@@ -41,25 +38,19 @@ namespace Api
             services.AddSingleton<ProductType>();
             services.AddSingleton<ProductCatetoryEnumType>();
             //services.AddSingleton<ProductInputType>();
-
-
-
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+                
             services.AddGraphQL(x =>
                 {
                     x.EnableMetrics = true;
                     x.ExposeExceptions = true;
                 })
                 .AddGraphTypes(ServiceLifetime.Scoped);
-                //.AddUserContextBuilder(httpContext => new GraphQLUserContext {User = httpContext.User});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             // add http for Schema at default url /graphql
-            //app.UseGraphQL<ISchema>("/graphql");
             app.UseGraphQL<ProductSchema>();
 
             // use graphql-playground at default url /ui/playground

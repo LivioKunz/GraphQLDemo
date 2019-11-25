@@ -1,0 +1,48 @@
+﻿@model Web.Models.ProductModel
+<div class="row">
+    <div class="col-3">
+        <img height="150" src="/Images/@Model.PhotoFileName" alt="Product image" />
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <div class="col-12">
+                <h3>@Model.Name</h3>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                @Model.Description
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-3">
+                Category: @Model.Category
+            </div>
+            <div class="col-3">
+                Price: $@Model.Price
+            </div>
+        </div>
+        <h5>Similair Products:</h5>
+        <div class="row mb-4">
+            @foreach (var product in Model.SimilarProducts)
+        {
+            <div class="col-2">
+                <div class="col-1">
+                    <h9>@product.Name</h9>
+
+                    <img height="77" src="~/images/@product.PhotoFileName" />
+                </div>
+                
+            </div>
+        }
+        </div>
+        <div id="reviews"></div>
+
+            <a asp-action="AddSimilairProduct" asp-route-productId="@Model.Id">Add a similair Product</a>
+        </div>
+</div>
+<script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
+<script src="~/reviews.js"></script>
+<script>
+    renderReviews(@Model.Id);
+</script>

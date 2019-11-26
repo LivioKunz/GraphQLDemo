@@ -12,7 +12,7 @@ namespace GraphQLTests
 
         public ShopData()
         {
-            _productOne = new Product
+            _products.Add(new Product
             {
                 Price = new decimal(12.5),
                 Name = "Denim White-Shirt",
@@ -21,9 +21,7 @@ namespace GraphQLTests
                 Category = ProductCategory.TShirts,
                 PhotoFileName = "00388030_163952_weiss_flat.550.png",
                 Description = "Polo-Shirt aus Piqué"
-            };
-
-            _products.Add(_productOne);
+            });
 
             _products.Add(new Product
             {
@@ -62,7 +60,7 @@ namespace GraphQLTests
             {
                 Price = new decimal(45.50),
                 Name = "Jeans",
-                Id = 4,
+                Id = 5,
                 SimilarProducts = new[] { 1 },
                 Category = ProductCategory.Trousers,
                 PhotoFileName = "00380610_148198_dark-denim_flat.550.png",
@@ -97,7 +95,11 @@ namespace GraphQLTests
 
         public List<Product> GetProducts(int[] sourceSimilarProducts)
         {
-            return _products.Where(x => sourceSimilarProducts.Contains(x.Id)).ToList();
+            if (sourceSimilarProducts != null && sourceSimilarProducts.Any())
+            {
+                return _products.Where(x => sourceSimilarProducts.Contains(x.Id)).ToList();
+            }
+            return new List<Product>();
         }
     }
 }

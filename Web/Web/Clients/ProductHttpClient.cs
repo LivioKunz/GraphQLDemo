@@ -19,9 +19,10 @@ namespace Web.Clients
         public async Task<List<ProductModel>> GetProducts()
         {
             var response = await _httpClient.GetAsync(@"?query= 
-                    { products 
-                        { id name price photoFileName } 
-                    }");
+                        { products 
+                            { id name price photoFileName } 
+                        }"
+                    );
 
             var stringResult = await response.Content.ReadAsStringAsync();
             var productsContainer = JsonConvert.DeserializeObject<Response>(stringResult);

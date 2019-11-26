@@ -32,13 +32,13 @@ namespace Api
             services.AddScoped<ShopData>();
 
 
-            //services.AddSingleton<ShopMutation>();
+            services.AddSingleton<ShopMutation>();
             services.AddSingleton<ShopQuery>();
 
             services.AddSingleton<ProductType>();
             services.AddSingleton<ProductCatetoryEnumType>();
-            //services.AddSingleton<ProductInputType>();
-                
+            services.AddSingleton<ProductInputType>();
+
             services.AddGraphQL(x =>
                 {
                     x.EnableMetrics = true;

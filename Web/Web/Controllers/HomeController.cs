@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Clients;
+using Web.Models;
 
 namespace Web.Controllers
 {
@@ -36,9 +37,16 @@ namespace Web.Controllers
             return View(responseModel);
         }
 
-        //public async Task<IActionResult> AddSimilairProduct(int productId)
-        //{
-        //    _productGraphClient.AddSimilairProduct()
-        //}
+        public IActionResult AddProduct()
+        {
+            return View(new ProductInputModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(ProductInputModel input)
+        {
+            var product = await _productGraphClient.AddProduct(input);
+            return RedirectToAction("ProductDetail", new { productId = product.Id });
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace GraphQLTests
         public ProductSchema(IDependencyResolver resolver) : base(resolver)
         {
             Query = resolver.Resolve<ShopQuery>();
-            //Mutation = resolver.Resolve<ShopMutation>();
+            Mutation = resolver.Resolve<ShopMutation>();
         }
     }
 }

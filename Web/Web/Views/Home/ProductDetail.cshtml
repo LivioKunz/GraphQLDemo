@@ -36,13 +36,5 @@
             </div>
         }
         </div>
-        <div id="reviews"></div>
-
-            <a asp-action="AddSimilairProduct" asp-route-productId="@Model.Id">Add a similair Product</a>
         </div>
 </div>
-<script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
-<script src="~/reviews.js"></script>
-<script>
-    renderReviews(@Model.Id);
-</script>

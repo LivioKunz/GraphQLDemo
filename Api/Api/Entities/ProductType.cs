@@ -13,11 +13,11 @@ namespace GraphQLTests
             Field(x => x.Price).Description("The price of the product");
             Field(x => x.PhotoFileName);
             Field(x => x.Description);
+            Field<ProductCatetoryEnumType>("Category");
 
             Field<ListGraphType<ProductType>>("SimilarProducts", "You may also be interested in",
                 resolve: context => shopData.GetProducts(context.Source.SimilarProducts));
 
-            Field<ProductCatetoryEnumType>("Category");
         }
     }
 }

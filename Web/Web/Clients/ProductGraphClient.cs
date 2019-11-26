@@ -4,6 +4,8 @@ using GraphQL.Common.Request;
 using Web.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace Web.Clients
 {
@@ -54,28 +56,32 @@ namespace Web.Clients
             var response = await _client.PostAsync(query);
 
             var response2 = await _client.PostQueryAsync(stringquery);
-
             var test = response2.GetDataFieldAs<List<ProductModel>>("products");
 
             return response.GetDataFieldAs<List<ProductModel>>("products");
         }
 
-        //public async Task<ProductReviewModel> AddReview(ProductReviewInputModel review)
-        //{
-        //    var query = new GraphQLRequest
-        //    {
-        //        Query = @" 
-        //        mutation($review: reviewInput!)
-        //        {
-        //            createReview(review: $review)
-        //            {
-        //                id
-        //            }
-        //        }",
-        //        Variables = new { review }
-        //    };
-        //    var response = await _client.PostAsync(query);
-        //    return response.GetDataFieldAs<ProductReviewModel>("createReview");
-        //}
+        public async Task<ProductModel> AddProduct(ProductInputModel product)
+        {
+            var query = new GraphQLRequest
+            {
+                Query = @" mutation($productIn: ProductInput!) {
+                              createProduct(productInput: $productIn) {
+                                id
+                                name
+                                price
+                                photoFileName
+                                description
+                              }
+                            }",
+                Variables = new
+                {
+                    productIn = product
+                }
+            };
+
+            var respone = await _client.PostAsync(query);                       
+            return respone.GetDataFieldAs<ProductModel>("createProduct");
+        }     
     }
 }

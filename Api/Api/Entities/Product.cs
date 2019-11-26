@@ -1,6 +1,5 @@
 ﻿using System;
 using GraphQL;
-using GraphQL.Types;
 
 namespace GraphQLTests
 {
@@ -20,25 +19,4 @@ namespace GraphQLTests
 
         public string PhotoFileName { get; set; }
     }
-
-    public enum ProductCategory
-    {
-        Trousers,
-        TShirts,
-        Jackets
-    }
-
-    public class ProductInputType : ObjectGraphType<Product>
-    {
-        public ProductInputType()
-        {
-            Name = "ProductInput";
-
-            Field(x => x.Name);
-            Field(x => x.Price);
-            Field(x => x.SimilarProducts, true);
-        }
-    }
-
-
 }

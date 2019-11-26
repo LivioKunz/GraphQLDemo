@@ -1,6 +1,6 @@
 ﻿using GraphQL.Types;
 
-namespace GraphQLTests
+namespace Api.Entities
 {
     public class ProductType : ObjectGraphType<Product>
     {

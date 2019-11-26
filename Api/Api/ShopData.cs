@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.Entities;
 
-namespace GraphQLTests
+namespace Api
 {
     public class ShopData
     {
         private readonly List<Product> _products = new List<Product>();
-        private Product _productOne;
 
         public ShopData()
         {

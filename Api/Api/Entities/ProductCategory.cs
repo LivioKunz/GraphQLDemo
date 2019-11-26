@@ -1,4 +1,4 @@
-﻿namespace GraphQLTests
+﻿namespace Api.Entities
 {
     public enum ProductCategory
     {

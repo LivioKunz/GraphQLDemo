@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -38,11 +37,11 @@ namespace Web.Clients
             Data = productsContainer;
         }
 
-        public ProductsContainer Data { get; set; }
+        public ProductsContainer Data { get;  }
     }
 
     public class ProductsContainer
     {
-        public List<ProductModel> Products { get; set; }
+        public List<ProductModel> Products { get;  }
     }
 }

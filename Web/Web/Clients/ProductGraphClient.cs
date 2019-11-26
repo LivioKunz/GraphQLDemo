@@ -2,10 +2,7 @@
 using GraphQL.Client;
 using GraphQL.Common.Request;
 using Web.Models;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System;
-using System.Linq;
 
 namespace Web.Clients
 {

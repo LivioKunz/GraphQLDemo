@@ -6,7 +6,7 @@ namespace Api.GraphQL
 {
     public class ShopMutation : ObjectGraphType
     {
-        public ShopMutation(ShopData shopData)
+        public ShopMutation(ShopDataRepository shopData)
         {
             Field<ProductType>(
                 "createProduct",

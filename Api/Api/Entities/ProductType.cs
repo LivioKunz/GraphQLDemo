@@ -5,7 +5,7 @@ namespace Api.Entities
 {
     public class ProductType : ObjectGraphType<Product>
     {
-        public ProductType(ShopData shopData)
+        public ProductType(ShopDataRepository shopDataRepository)
         {
             Name = "Product";
 
@@ -17,7 +17,7 @@ namespace Api.Entities
             Field<ProductCatetoryEnumType>("Category");
 
             Field<ListGraphType<ProductType>>("SimilarProducts", "You may also be interested in",
-                resolve: context => shopData.GetProducts(context.Source.SimilarProducts));
+                resolve: context => shopDataRepository.GetProducts(context.Source.SimilarProducts));
 
         }
     }

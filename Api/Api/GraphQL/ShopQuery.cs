@@ -5,21 +5,22 @@ namespace Api.GraphQL
 {
     public class ShopQuery : ObjectGraphType
     {
-        public ShopQuery(ShopData shopData)
+        public ShopQuery(ShopDataRepository shopDataRepository)
         {
             Name = "Query";
+
+            Field<ListGraphType<ProductType>>(
+               "products",
+               resolve: context => shopDataRepository.GetAll());
 
             Field<ProductType>(
                 "product",
                 arguments: new QueryArguments(
                     new QueryArgument<NonNullGraphType<IdGraphType>>
                     { Name = "id", Description = "Id of the product" }),
-                resolve: context => shopData.GetProductAsync(context.GetArgument<int>("id"))
-            );
-
-            Field<ListGraphType<ProductType>>(
-                "products",
-                resolve: context => shopData.GetAll());
+                //GraphQL handelt Async call
+                resolve: context => shopDataRepository.GetProductAsync(context.GetArgument<int>("id"))
+            );           
         }
     }
 }

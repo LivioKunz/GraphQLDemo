@@ -6,11 +6,11 @@ using GraphQLTests;
 
 namespace Api
 {
-    public class ShopData
+    public class ShopDataRepository
     {
         private readonly List<Product> _products = new List<Product>();
 
-        public ShopData()
+        public ShopDataRepository()
         {
             _products.Add(new Product
             {

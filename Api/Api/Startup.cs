@@ -26,9 +26,9 @@ namespace Api
         {
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<ProductSchema>();
-            services.AddScoped<ShopData>();
+            services.AddScoped<ShopDataRepository>();
             
-            services.AddSingleton<ShopMutation>();
+            //services.AddSingleton<ShopMutation>();
             services.AddSingleton<ShopQuery>();
 
             services.AddSingleton<ProductType>();

@@ -1,4 +1,5 @@
-﻿using GraphQL.Types;
+﻿using Api.Entities;
+using GraphQL.Types;
 
 namespace GraphQLTests
 {

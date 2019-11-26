@@ -1,5 +1,4 @@
-﻿using System;
-using GraphQL;
+﻿using Api.Entities;
 
 namespace GraphQLTests
 {

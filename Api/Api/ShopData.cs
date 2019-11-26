@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Api.Entities;
+using GraphQLTests;
 
 namespace Api
 {

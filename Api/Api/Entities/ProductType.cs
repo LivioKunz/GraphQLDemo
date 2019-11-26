@@ -1,4 +1,5 @@
 ﻿using GraphQL.Types;
+using GraphQLTests;
 
 namespace Api.Entities
 {

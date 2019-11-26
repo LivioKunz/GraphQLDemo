@@ -24,12 +24,10 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<ProductSchema>();
             services.AddScoped<ShopData>();
-
-
+            
             services.AddSingleton<ShopMutation>();
             services.AddSingleton<ShopQuery>();
 
